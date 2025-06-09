@@ -204,3 +204,119 @@ Preparing to push logs to GitHub...
 ++ git config --global user.email
 + '[' -z fhj1371201288@gmail.com ']'
 + git add -f env.log run.log log.txt
+++ date
++ git commit -m 'Update logs: Mon Jun  9 12:00:49 CST 2025'
+[master 71171f6] Update logs: Mon Jun  9 12:00:49 CST 2025
+ 3 files changed, 311 insertions(+)
++ push_with_proxy
++ '[' -z '' ']'
++ echo 'Using proxychains for git push...'
+Using proxychains for git push...
++ proxychains git push origin master
+[proxychains] config file found: /etc/proxychains4.conf
+[proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
+[proxychains] DLL init: proxychains-ng 4.14
+[proxychains] DLL init: proxychains-ng 4.14
+[proxychains] Strict chain  ...  127.0.0.1:1080  ...  127.0.0.1:1080  ...  127.0.0.1:8123  ...  github.com:443  ...  OK
+++ date
++ echo '=== Script started at Mon Jun  9 12:01:29 CST 2025 ==='
+=== Script started at Mon Jun  9 12:01:29 CST 2025 ===
++ trap 'handle_error $LINENO "$BASH_COMMAND"' ERR
++ echo 'Switching to CUDA directory...'
+Switching to CUDA directory...
++ mkdir -p /root/.local/.cuda
++ cd /root/.local/.cuda
++ pwd
+/root/.local/.cuda
++ '[' -d GPU-getter ']'
++ echo 'GPU-getter directory exists, keeping it...'
+GPU-getter directory exists, keeping it...
++ cd GPU-getter
++ echo 'Current directory contents:'
+Current directory contents:
++ ls -la
+total 56
+drwxr-xr-x 3 root root  4096 Jun  9 11:57 .
+drwxr-xr-x 3 root root  4096 Jun  9 11:57 ..
+drwxr-xr-x 8 root root  4096 Jun  9 12:00 .git
+-rw-r--r-- 1 root root   159 Jun  9 12:00 env.log
+-rwxr-xr-x 1 root root   212 Jun  9 11:57 env.sh
+-rw-r--r-- 1 root root 12912 Jun  9 12:01 log.txt
+-rw-r--r-- 1 root root 12678 Jun  9 12:00 run.log
+-rwxr-xr-x 1 root root   139 Jun  9 11:57 run.sh
++ echo 'Making scripts executable...'
+Making scripts executable...
++ '[' '!' -f env.sh ']'
++ '[' '!' -f run.sh ']'
++ chmod +x env.sh run.sh
++ ls -la env.sh run.sh
+-rwxr-xr-x 1 root root 212 Jun  9 11:57 env.sh
+-rwxr-xr-x 1 root root 139 Jun  9 11:57 run.sh
++ echo 'Running env.sh...'
+Running env.sh...
++ ./env.sh
++ tee -a env.log
+This is a dummy env.sh
+yes
+Environment variables set
++ '[' 0 -ne 0 ']'
++ echo 'Running run.sh...'
+Running run.sh...
++ ./run.sh
++ tee -a run.log
+This is a dummy run.sh
+yes
+Mon Jun  9 12:01:29 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A800-SXM4-80GB          On  | 00000000:53:00.0 Off |                    0 |
+| N/A   63C    P0             401W / 400W |  13270MiB / 81920MiB |    100%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA A800-SXM4-80GB          On  | 00000000:58:00.0 Off |                    0 |
+| N/A   27C    P0              51W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA A800-SXM4-80GB          On  | 00000000:6C:00.0 Off |                    0 |
+| N/A   27C    P0              56W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA A800-SXM4-80GB          On  | 00000000:72:00.0 Off |                    0 |
+| N/A   30C    P0              55W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   4  NVIDIA A800-SXM4-80GB          On  | 00000000:AD:00.0 Off |                    0 |
+| N/A   28C    P0              58W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   5  NVIDIA A800-SXM4-80GB          On  | 00000000:B1:00.0 Off |                    0 |
+| N/A   26C    P0              52W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   6  NVIDIA A800-SXM4-80GB          On  | 00000000:D0:00.0 Off |                    0 |
+| N/A   27C    P0              56W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   7  NVIDIA A800-SXM4-80GB          On  | 00000000:D3:00.0 Off |                    0 |
+| N/A   29C    P0              55W / 400W |      3MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
++---------------------------------------------------------------------------------------+
+Script execution completed
++ '[' 0 -ne 0 ']'
++ echo 'Preparing to push logs to GitHub...'
+Preparing to push logs to GitHub...
+++ git config --global user.email
++ '[' -z gpu-getter-bot@example.com ']'
++ git add -f env.log run.log log.txt
